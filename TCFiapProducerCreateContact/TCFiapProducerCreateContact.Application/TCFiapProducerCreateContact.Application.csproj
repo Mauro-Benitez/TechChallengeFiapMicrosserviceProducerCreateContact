@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.3.6" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TCFiapProducerCreateContact.Core\TCFiapProducerCreateContact.Core.csproj" />
+  </ItemGroup>
+
 </Project>

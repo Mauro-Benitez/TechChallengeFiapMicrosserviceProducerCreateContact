@@ -1,4 +1,6 @@
 using MassTransit;
+using TCFiapProducerCreateContact.Application.Services;
+using TCFiapProducerCreateContact.Application.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,8 @@ builder.Services.AddMassTransit(x =>
         cfg.Host(envHostRabbitMqServer);
     });
 });
-
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddSingleton<IRabbitMqClient,RabbitMqClient>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

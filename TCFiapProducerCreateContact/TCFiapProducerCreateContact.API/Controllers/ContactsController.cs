@@ -1,5 +1,7 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using TCFiapProducerCreateContact.Application.Dtos;
+using TCFiapProducerCreateContact.Application.Services;
 
 namespace TCFiapProducerCreateContact.API.Controllers
 {
@@ -7,21 +9,27 @@ namespace TCFiapProducerCreateContact.API.Controllers
     [Route("[controller]")]      
     public class ContactsController : ControllerBase
     {
-        private readonly IBus _bus;
+        private readonly IContactService _contactSerrvice;
         private readonly IConfiguration _configuration;
 
-        public ContactsController(IBus bus, IConfiguration configuration)
+
+        public ContactsController(IContactService contactSerrvice, IConfiguration configuration)
         {
-            _bus = bus;
+            _contactSerrvice = contactSerrvice;
             _configuration = configuration;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post()
+        [HttpPost("create")]
+        public async Task<IActionResult> Post([FromBody] ContactDto contactDto)
         {
-            var nomeFila = _configuration.GetSection("MassTransit")["NomedaFila"] ?? "create-contact-queue";
-            var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
-            await endpoint.Send(new Contact("Mauro","mauro@email.com","119999999"));
+             _contactSerrvice.CreateContact(contactDto);
+            return Ok();
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] ContactDto contactDto)
+        {
+            _contactSerrvice.UpdateContact(contactDto);
             return Ok();
         }
     }
