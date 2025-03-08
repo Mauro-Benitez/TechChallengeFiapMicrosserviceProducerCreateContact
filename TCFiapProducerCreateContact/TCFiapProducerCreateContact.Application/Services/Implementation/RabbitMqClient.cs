@@ -22,16 +22,23 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
 
         public async Task PublicMessageCreate(Contact contact)
         {
-            var nomeFila = _configuration.GetSection("MassTransit")["NomedaFila1"] ?? "create-contact-queue";
+            var nomeFila = _configuration.GetSection("MassTransit")["FilaCreate"] ?? "create-contact-queue";
             var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
             await endpoint.Send(contact);
         }
-
         public async Task PublicMessageUpdate(Contact contact)
         {
-            var nomeFila = _configuration.GetSection("MassTransit")["NomedaFila2"] ?? "create-contact-queue";
+            var nomeFila = _configuration.GetSection("MassTransit")["FilaUpdate"] ?? "update-contact-queue";
             var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
             await endpoint.Send(contact);
         }
+        public async Task PublicMessageDelete(RemoveContactMessage id)
+        {
+            var nomeFila = _configuration.GetSection("MassTransit")["FilaDelete"] ?? "delete-contact-queue";
+            var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
+            await endpoint.Send(id);
+        }
+
+        
     }
 }

@@ -24,12 +24,24 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
             _rabbitMqClient.PublicMessageCreate(contact);
            
         }
-
+       
         public void UpdateContact(ContactDto contactDto)
         {
             Contact contact = new Contact(contactDto.Name, contactDto.Email, contactDto.Phone);
 
             _rabbitMqClient.PublicMessageUpdate(contact);
         }
+
+        public void DeleteContact(Guid id)
+        {
+            _rabbitMqClient.PublicMessageDelete(new RemoveContactMessage { ContactId = id });
+        }
+
     }
+
+    public class RemoveContactMessage
+    {
+        public Guid ContactId { get; set; }
+    }
+
 }

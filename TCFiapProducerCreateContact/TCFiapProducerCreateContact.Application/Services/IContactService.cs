@@ -13,5 +13,7 @@ namespace TCFiapProducerCreateContact.Application.Services
 
         void UpdateContact(ContactDto contactDto);
 
+        void DeleteContact(Guid id);
+
     }
 }

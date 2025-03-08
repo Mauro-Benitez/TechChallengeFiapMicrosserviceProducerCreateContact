@@ -9,16 +9,19 @@ namespace TCFiapProducerCreateContact.Core.Entities
 {
     public class Contact
     {
-     
+
+        public Guid id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
 
         public Contact(string name, string email, string phone)
         {
+            id = Guid.NewGuid();
             Name = name;
             Email = email;
             Phone = phone;
+            
         }
     }
 }
