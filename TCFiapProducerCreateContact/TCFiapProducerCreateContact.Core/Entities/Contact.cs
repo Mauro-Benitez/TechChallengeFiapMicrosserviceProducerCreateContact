@@ -1,27 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Core.ValueObjects;
 
 namespace TCFiapProducerCreateContact.Core.Entities
 {
     public class Contact
     {
 
-        public Guid id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public Guid Id { get; set; }
 
-        public Contact(string name, string email, string phone)
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public int DDD { get; set; }
+
+        [Required]
+        public int Phone { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        //create
+        public Contact(string firstName, string lastName, int Ddd, int phone, string email)
         {
-            id = Guid.NewGuid();
-            Name = name;
-            Email = email;
+            Id = new Guid();
+            FirstName = firstName;
+            LastName = lastName;
+            DDD = Ddd;
             Phone = phone;
-            
+            Email = email;
+        }
+
+        //update
+        public Contact(Guid id, string firstName, string lastName, int Ddd, int phone, string email)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            DDD = Ddd;
+            Phone = phone;
+            Email = email;
         }
     }
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Application.Dtos;
+using TCFiapProducerCreateContact.Application.Inputs;
 
 namespace TCFiapProducerCreateContact.Application.Services
 {
     public interface IContactService
     {
-        void CreateContact(ContactDto contactDto);
+        void CreateContact(CreateContactInputModel contactInput);
 
-        void UpdateContact(ContactDto contactDto);
+        void UpdateContact(UpdateContactInputModel contactInput);
 
         void DeleteContact(Guid id);
 

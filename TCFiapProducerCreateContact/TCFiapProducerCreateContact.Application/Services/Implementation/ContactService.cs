@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Application.Dtos;
+using TCFiapProducerCreateContact.Application.Inputs;
 using TCFiapProducerCreateContact.Core.Entities;
 
 namespace TCFiapProducerCreateContact.Application.Services.Implementation
@@ -17,17 +17,30 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
             _rabbitMqClient = rabbitMqClient;
         }
 
-        public void CreateContact(ContactDto contactDto)
+        public void CreateContact(CreateContactInputModel contactInput)
         {
-            Contact contact = new Contact(contactDto.Name, contactDto.Email,contactDto.Phone);
+            Contact contact = new Contact(
+                contactInput.FirstName,
+                contactInput.LastName,
+                contactInput.DDD,
+                contactInput.Phone,
+                contactInput.Email
+                );
 
             _rabbitMqClient.PublicMessageCreate(contact);
            
         }
        
-        public void UpdateContact(ContactDto contactDto)
+        public void UpdateContact(UpdateContactInputModel contactInput)
         {
-            Contact contact = new Contact(contactDto.Name, contactDto.Email, contactDto.Phone);
+            Contact contact = new Contact(
+                contactInput.Id,
+                contactInput.FirstName,
+                contactInput.LastName,
+                contactInput.DDD,
+                contactInput.Phone,
+                contactInput.Email
+                );
 
             _rabbitMqClient.PublicMessageUpdate(contact);
         }

@@ -1,6 +1,6 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using TCFiapProducerCreateContact.Application.Dtos;
+using TCFiapProducerCreateContact.Application.Inputs;
 using TCFiapProducerCreateContact.Application.Services;
 
 namespace TCFiapProducerCreateContact.API.Controllers
@@ -20,16 +20,16 @@ namespace TCFiapProducerCreateContact.API.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Post([FromBody] ContactDto contactDto)
+        public async Task<IActionResult> Post([FromBody] CreateContactInputModel contactInput)
         {
-            _contactService.CreateContact(contactDto);
+            _contactService.CreateContact(contactInput);
             return Ok();
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> Update([FromBody] ContactDto contactDto)
+        public async Task<IActionResult> Update([FromBody] UpdateContactInputModel contactInput)
         {
-            _contactService.UpdateContact(contactDto);
+            _contactService.UpdateContact(contactInput);
             return Ok();
         }
 
