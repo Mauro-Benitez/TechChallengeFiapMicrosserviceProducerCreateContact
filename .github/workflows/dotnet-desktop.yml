@@ -16,8 +16,7 @@ jobs:
 
     env:
       Solution_Name: TCFiapProducerCreateContact/TCFiapProducerCreateContact.sln 
-      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGENAME }}
-
+      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/tc-fiap-producers-contacts
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
