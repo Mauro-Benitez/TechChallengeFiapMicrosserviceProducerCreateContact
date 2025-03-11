@@ -5,8 +5,6 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCFiapProducerCreateContact.API", "TCFiapProducerCreateContact.API\TCFiapProducerCreateContact.API.csproj", "{F9EE1EE4-5489-445F-BAE0-CB0113AB82A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCFiapProducerCreateContact.Core", "TCFiapProducerCreateContact.Core\TCFiapProducerCreateContact.Core.csproj", "{8E0BB89B-252A-44AD-93F2-6950FB96E5E4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCFiapProducerCreateContact.Application", "TCFiapProducerCreateContact.Application\TCFiapProducerCreateContact.Application.csproj", "{89F2C960-6162-4638-90EC-AC1D67AE9AC1}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{F9EE1EE4-5489-445F-BAE0-CB0113AB82A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9EE1EE4-5489-445F-BAE0-CB0113AB82A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9EE1EE4-5489-445F-BAE0-CB0113AB82A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E0BB89B-252A-44AD-93F2-6950FB96E5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E0BB89B-252A-44AD-93F2-6950FB96E5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E0BB89B-252A-44AD-93F2-6950FB96E5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E0BB89B-252A-44AD-93F2-6950FB96E5E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU

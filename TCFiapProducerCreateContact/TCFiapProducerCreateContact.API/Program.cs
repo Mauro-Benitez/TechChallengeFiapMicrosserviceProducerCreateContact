@@ -18,7 +18,7 @@ builder.Services.AddMassTransit(x =>
     });
 });
 builder.Services.AddScoped<IContactService, ContactService>();
-builder.Services.AddSingleton<IRabbitMqClient,RabbitMqClient>();
+builder.Services.AddSingleton<IRabbitMqClient, RabbitMqClient>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

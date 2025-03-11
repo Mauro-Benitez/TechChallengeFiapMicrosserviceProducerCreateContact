@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Application.Services.Implementation;
-using TCFiapProducerCreateContact.Core.Entities;
+﻿using TechChallengeFiap.Messages;
 
 namespace TCFiapProducerCreateContact.Application.Services
 {
     public interface IRabbitMqClient
     {
-        Task PublicMessageCreate(Contact contact);
+        Task PublicMessageCreate(CreateContactMessage contact);
 
-        Task PublicMessageUpdate(Contact contact);
+        Task PublicMessageUpdate(UpdateContactMessage contact);
 
         Task PublicMessageDelete(RemoveContactMessage id);
 

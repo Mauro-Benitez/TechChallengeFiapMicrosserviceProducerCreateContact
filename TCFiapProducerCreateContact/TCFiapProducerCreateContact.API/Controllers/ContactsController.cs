@@ -1,4 +1,3 @@
-using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using TCFiapProducerCreateContact.Application.Inputs;
 using TCFiapProducerCreateContact.Application.Services;
@@ -10,34 +9,32 @@ namespace TCFiapProducerCreateContact.API.Controllers
     public class ContactsController : ControllerBase
     {
         private readonly IContactService _contactService;
-        private readonly IConfiguration _configuration;
 
 
-        public ContactsController(IContactService contactSerrvice, IConfiguration configuration)
+        public ContactsController(IContactService contactSerrvice)
         {
             _contactService = contactSerrvice;
-            _configuration = configuration;
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateContactInputModel contactInput)
         {
             _contactService.CreateContact(contactInput);
-            return Ok();
+            return Accepted();
         }
 
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateContactInputModel contactInput)
         {
             _contactService.UpdateContact(contactInput);
-            return Ok();
+            return Accepted();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             _contactService.DeleteContact(id);
-            return Ok();
+            return Accepted();
         }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Core.Entities;
+using TechChallengeFiap.Messages;
 
 namespace TCFiapProducerCreateContact.Application.Services.Implementation
 {
@@ -20,21 +15,21 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
             _configuration = configuration;
         }
 
-        public async Task PublicMessageCreate(Contact contact)
+        public async Task PublicMessageCreate(CreateContactMessage contact)
         {
             var nomeFila = _configuration.GetSection("MassTransit")["FilaCreate"] ?? "create-contact-queue";
             var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
             await endpoint.Send(contact);
         }
-        public async Task PublicMessageUpdate(Contact contact)
+        public async Task PublicMessageUpdate(UpdateContactMessage contact)
         {
-            var nomeFila = _configuration.GetSection("MassTransit")["FilaUpdate"] ?? "update-contact-queue";
+            var nomeFila = "update-contact-queue";
             var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
             await endpoint.Send(contact);
         }
         public async Task PublicMessageDelete(RemoveContactMessage id)
         {
-            var nomeFila = _configuration.GetSection("MassTransit")["FilaDelete"] ?? "delete-contact-queue";
+            var nomeFila = "delete-contact-queue";
             var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
             await endpoint.Send(id);
         }

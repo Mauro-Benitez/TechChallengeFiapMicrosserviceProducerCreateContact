@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TCFiapProducerCreateContact.Application.Inputs;
-using TCFiapProducerCreateContact.Core.Entities;
+﻿using TCFiapProducerCreateContact.Application.Inputs;
+using TechChallengeFiap.Messages;
 
 namespace TCFiapProducerCreateContact.Application.Services.Implementation
 {
@@ -19,7 +14,7 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
 
         public void CreateContact(CreateContactInputModel contactInput)
         {
-            Contact contact = new Contact(
+            CreateContactMessage contact = new CreateContactMessage(
                 contactInput.FirstName,
                 contactInput.LastName,
                 contactInput.DDD,
@@ -33,7 +28,7 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
        
         public void UpdateContact(UpdateContactInputModel contactInput)
         {
-            Contact contact = new Contact(
+            UpdateContactMessage contact = new UpdateContactMessage(
                 contactInput.Id,
                 contactInput.FirstName,
                 contactInput.LastName,
@@ -49,12 +44,5 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
         {
             _rabbitMqClient.PublicMessageDelete(new RemoveContactMessage { ContactId = id });
         }
-
     }
-
-    public class RemoveContactMessage
-    {
-        public Guid ContactId { get; set; }
-    }
-
 }
