@@ -6,7 +6,7 @@ COPY . ./
 WORKDIR /App/TCFiapProducerCreateContact
 
 RUN dotnet restore 
-RUN dotnet publish TCFiapProducerCreateContact.API/TCFiapProducerCreateContact.API.csproj -c Release -o out
+RUN dotnet publish TCFiapProducerCreateContact.API/TCFiapProducerCreateContact.API.csproj -c Release -o /App/out
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
