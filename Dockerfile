@@ -10,11 +10,13 @@ COPY . ./
 WORKDIR /App/TCFiapProducerCreateContact
 
 # Adicionar a fonte privada do GitHub Packages
-RUN dotnet nuget add source "https://nuget.pkg.github.com/caiofabiogomes/index.json" \
-    --name github \
-    --username caiofabiogomes \
-    --password "$ARG_SECRET_NUGET_PACKAGES" \
-    --store-password-in-clear-text
+RUN if ! dotnet nuget list source | grep -q "github"; then \
+      dotnet nuget add source "https://nuget.pkg.github.com/caiofabiogomes/index.json" \
+      --name github \
+      --username caiofabiogomes \
+      --password "$ARG_SECRET_NUGET_PACKAGES" \
+      --store-password-in-clear-text; \
+    fi
 
 RUN dotnet restore 
 RUN dotnet publish TCFiapProducerCreateContact.API/TCFiapProducerCreateContact.API.csproj -c Release -o /App/out
