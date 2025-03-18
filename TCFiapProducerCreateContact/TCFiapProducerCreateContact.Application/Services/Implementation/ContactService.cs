@@ -1,5 +1,5 @@
 ﻿using TCFiapProducerCreateContact.Application.Inputs;
-using TechChallengeFiap.Messages;
+using TechChallenge.SDK.Infrastructure.Message;
 
 namespace TCFiapProducerCreateContact.Application.Services.Implementation
 {

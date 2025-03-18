@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Configuration;
-using TechChallengeFiap.Messages;
+using TechChallenge.SDK.Infrastructure.Message;
 
 namespace TCFiapProducerCreateContact.Application.Services.Implementation
 {
