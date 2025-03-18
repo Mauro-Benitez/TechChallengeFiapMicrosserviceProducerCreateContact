@@ -12,7 +12,7 @@ WORKDIR /App/TCFiapProducerCreateContact
 # Adicionar a fonte privada do GitHub Packages
 RUN dotnet nuget add source "https://nuget.pkg.github.com/caiofabiogomes/index.json" \
     --name github \
-    --username mauro-benitez \
+    --username mauro_benitez \
     --password "$ARG_SECRET_NUGET_PACKAGES" \
     --store-password-in-clear-text
 
