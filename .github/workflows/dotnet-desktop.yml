@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-
 jobs:
   build:
     strategy:
@@ -14,15 +13,9 @@ jobs:
         configuration: [Debug, Release]
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
-      packages: write # for pushing GitHub Nuget packages
 
     env:
-      Solution_Name: TCFiapProducerCreateContact/TCFiapProducerCreateContact.sln
+      Solution_Name: TCFiapProducerCreateContact.sln 
       IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/tc-fiap-producers-contacts
 
     steps:
@@ -44,9 +37,15 @@ jobs:
           dotnet nuget add source "https://nuget.pkg.github.com/caiofabiogomes/index.json" \
             --name github \
             --username caiofabiogomes \
-            --password ${{ secrets.SECRET_NUGET_PACKAGES }} \
+            --password ${{ secrets.SECRET_NUGET_PACKAGES_3 }} \
             --store-password-in-clear-text
 
+
+      - name: Restore and Build
+        run: |
+          dotnet restore ${{ env.Solution_Name }}
+          dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} --no-restore
+          
 
       - name: Login to Docker Hub
         if: matrix.configuration == 'Release'
