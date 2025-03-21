@@ -19,21 +19,21 @@ namespace TCFiapProducerCreateContact.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateContactInputModel contactInput)
         {
-            _contactService.CreateContact(contactInput);
+            await _contactService.CreateContactAsync(contactInput);
             return Accepted();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateContactInputModel contactInput)
         {
-            _contactService.UpdateContact(contactInput);
+            await _contactService.UpdateContactAsync(contactInput);
             return Accepted();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            _contactService.DeleteContact(id);
+            await _contactService.DeleteContactAsync(id);
             return Accepted();
         }
     }

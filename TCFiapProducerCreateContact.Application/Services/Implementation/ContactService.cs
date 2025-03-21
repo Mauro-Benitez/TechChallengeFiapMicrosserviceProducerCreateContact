@@ -12,7 +12,7 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
             _rabbitMqClient = rabbitMqClient;
         }
 
-        public void CreateContact(CreateContactInputModel contactInput)
+        public async Task CreateContactAsync(CreateContactInputModel contactInput)
         {
             CreateContactMessage contact = new CreateContactMessage(
                 contactInput.FirstName,
@@ -22,11 +22,11 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
                 contactInput.Email
                 );
 
-            _rabbitMqClient.PublicMessageCreate(contact);
+            await _rabbitMqClient.PublicMessageCreateAsync(contact);
            
         }
        
-        public void UpdateContact(UpdateContactInputModel contactInput)
+        public async Task UpdateContactAsync(UpdateContactInputModel contactInput)
         {
             UpdateContactMessage contact = new UpdateContactMessage(
                 contactInput.Id,
@@ -37,12 +37,12 @@ namespace TCFiapProducerCreateContact.Application.Services.Implementation
                 contactInput.Email
                 );
 
-            _rabbitMqClient.PublicMessageUpdate(contact);
+            await _rabbitMqClient.PublicMessageUpdateAsync(contact);
         }
 
-        public void DeleteContact(Guid id)
+        public async Task DeleteContactAsync(Guid id)
         {
-            _rabbitMqClient.PublicMessageDelete(new RemoveContactMessage { ContactId = id });
+            await _rabbitMqClient.PublicMessageDeleteAsync(new RemoveContactMessage { ContactId = id });
         }
     }
 }
