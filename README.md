@@ -50,6 +50,4 @@ docker run -d -p 8080:8080 --env CONNECTION_DATABASE="SuaConnectionString" micro
 - Fila: `update-contact-queue`
 - SDK registrado via `RegisterSdkModule`
 
-## Repositório
-[TechChallengeFiapMicrosserviceConsumerUpdateContact](https://seurepositorio.com/MicrosserviceConsumerUpdateContact.git)
 
