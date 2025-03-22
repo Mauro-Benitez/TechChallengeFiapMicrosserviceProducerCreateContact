@@ -32,4 +32,9 @@
 	<ItemGroup>
 		<Using Include="NUnit.Framework" />
 	</ItemGroup>
+
+	<Target Name="CopyDepsFile" AfterTargets="Build">
+		<Copy SourceFiles="..\TCFiapProducerCreateContact.API\bin\$(Configuration)\net8.0\TCFiapProducerCreateContact.API.deps.json"
+		      DestinationFiles="$(OutputPath)testhost.deps.json" />
+	</Target>
 </Project>
