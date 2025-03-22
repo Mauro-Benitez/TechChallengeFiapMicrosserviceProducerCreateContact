@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      Solution_Name: TCFiapProducerCreateContact.sln 
+      Solution_Name: TCFiapProducerCreateContact.sln
+      ProjectTest_Name:  TechChallengeFiapMicrosserviceProducerCreateContact/TCFiapProducerCreateContact.Tests.csproj
       IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/tc-fiap-producers-contacts
 
     steps:
@@ -47,6 +48,9 @@ jobs:
           dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} --no-restore
           
 
+      - name: Execute  tests
+        run: dotnet test ${{ env.ProjectTest_Name }} --configuration ${{ matrix.configuration }}
+  
       - name: Login to Docker Hub
         if: matrix.configuration == 'Release'
         uses: docker/login-action@v3
