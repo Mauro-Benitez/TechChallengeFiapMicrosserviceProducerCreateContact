@@ -44,7 +44,7 @@ docker run -d -p 8080:8080 --env CONNECTION_DATABASE="SuaConnectionString" micro
 - `Dockerfile`: Configuração para build e publicação
 
 ## Testes
-- Testes unitários com XUnit
+- Testes unitários com NUnit
 
 ## Configuração
 - Fila: `update-contact-queue`
