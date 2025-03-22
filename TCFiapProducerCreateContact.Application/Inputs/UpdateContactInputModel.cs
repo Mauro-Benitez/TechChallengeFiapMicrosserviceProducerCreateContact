@@ -10,6 +10,7 @@ namespace TCFiapProducerCreateContact.Application.Inputs
     public class UpdateContactInputModel
     {
         [Required]
+        [RegularExpression("^((?!00000000-0000-0000-0000-000000000000).)*$", ErrorMessage = "O ID é obrigatório.")]
         public Guid Id { get; set; }
 
         [Required]
