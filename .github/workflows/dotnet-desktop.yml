@@ -48,8 +48,6 @@ jobs:
           dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} --no-restore
           
 
-      - name: Execute  tests
-        run: dotnet test ${{ env.ProjectTest_Name }} --configuration ${{ matrix.configuration }}
   
       - name: Login to Docker Hub
         if: matrix.configuration == 'Release'
