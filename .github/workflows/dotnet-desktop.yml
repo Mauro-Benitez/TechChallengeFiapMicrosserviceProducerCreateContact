@@ -16,7 +16,7 @@ jobs:
 
     env:
       Solution_Name: TCFiapProducerCreateContact.sln
-      ProjectTest_Name:  TechChallengeFiapMicrosserviceProducerCreateContact/TCFiapProducerCreateContact.Tests.csproj
+      ProjectTest_Name:  TCFiapProducerCreateContact.Tests/TCFiapProducerCreateContact.Tests.csproj
       IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/tc-fiap-producers-contacts
 
     steps:
