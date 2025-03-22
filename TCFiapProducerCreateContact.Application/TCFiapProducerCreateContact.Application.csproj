@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MassTransit" Version="8.3.6" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.6" />
-    <PackageReference Include="TechChallengeFIAP" Version="1.5.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Events\**" />
+		<EmbeddedResource Remove="Events\**" />
+		<None Remove="Events\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Events\" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MassTransit" Version="8.3.6" />
+		<PackageReference Include="MassTransit.RabbitMQ" Version="8.3.6" />
+		<PackageReference Include="TechChallengeFIAP" Version="1.5.0" />
+	</ItemGroup>
 
 </Project>

@@ -8,9 +8,8 @@ namespace TCFiapProducerCreateContact.API.Controllers
     [Route("[controller]")]      
     public class ContactsController : ControllerBase
     {
+
         private readonly IContactService _contactService;
-
-
         public ContactsController(IContactService contactSerrvice)
         {
             _contactService = contactSerrvice;

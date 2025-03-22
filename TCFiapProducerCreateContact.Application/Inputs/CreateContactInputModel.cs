@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TCFiapProducerCreateContact.Application.Inputs
 {
@@ -29,7 +24,6 @@ namespace TCFiapProducerCreateContact.Application.Inputs
         [Required]
         [Range(10000000, 999999999, ErrorMessage = "O tamanho do telefone deve ser de 8 a 9 dígitos")]        
         public int Phone { get; set; }
-
 
     }
 }

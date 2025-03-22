@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCFiapProducerCreateContact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCFiapProducerCreateContact.Application", "TCFiapProducerCreateContact.Application\TCFiapProducerCreateContact.Application.csproj", "{89F2C960-6162-4638-90EC-AC1D67AE9AC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCFiapProducerCreateContact.Tests", "TCFiapProducerCreateContact.Tests\TCFiapProducerCreateContact.Tests.csproj", "{2F8AF753-381E-4F24-A2D2-FB17787E4A5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89F2C960-6162-4638-90EC-AC1D67AE9AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8AF753-381E-4F24-A2D2-FB17787E4A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8AF753-381E-4F24-A2D2-FB17787E4A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8AF753-381E-4F24-A2D2-FB17787E4A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8AF753-381E-4F24-A2D2-FB17787E4A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
